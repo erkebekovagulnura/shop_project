@@ -38,7 +38,8 @@ from apps.category.models import Category
 
 class Products(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(null=True)
+    image = models.ImageField(verbose_name='Изображение', default='SOME STRING')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
@@ -48,7 +49,3 @@ class Products(models.Model):
         return self.title
 
 
-# class ProductImage(models.Model):
-#     products = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='images')
-#     image = models.ImageField(blank=True, null=True, upload_to='products')
-    # order = models.IntegerField()

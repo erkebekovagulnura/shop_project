@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+import os
 from django.conf import settings
 
 
@@ -149,6 +150,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+# Media для сохрание картинок
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
